@@ -1,0 +1,455 @@
+ul{
+    list-style-type:none;
+}
+
+td{
+    padding:3px;
+}
+
+body{
+    margin:0px;
+    padding:0px;
+    text-align:center;
+}
+
+input[type=button]{
+    cursor:pointer;
+}
+
+input[type=text],input[type=password],select{
+    border-style: inset;
+    font-family: Verdana;
+}
+
+.invisivel{
+    visibility:hidden;
+}
+
+.visivel{
+    visibility:visible;
+}
+
+.bloqueado{
+    background-color:#EEEEEE;
+}
+
+.image1{
+    height:200px;
+    width:200px;
+}
+
+.image2{
+    height:50px;
+    width:50px;
+}
+
+#elemento1{
+    text-align:center;
+    position:absolute;
+    z-index: 4;
+    width:100%;
+    float:left;
+    height:200px;
+    font-family: Verdana;
+}
+
+#elemento2{
+    text-align:center;
+    color:white;
+    background-color:#101549;
+    font-family: Verdana;
+    font-weight:bold;
+    z-index: 3;
+    position:absolute;
+    top:200px;
+    width:100%;
+    float:left;
+    height:30px;
+}
+
+#elemento2 p{
+    padding: 6px;
+    font-family: Verdana;
+}
+
+#elemento3{
+    z-index: 2;
+    position:absolute;
+    top:230px;
+    font-family: Verdana;
+    font-weight:bold;
+    width:100%;
+    float:left;
+    height:-moz-calc(100% - 250px);
+    height:-webkit-calc(100% - 250px);
+    height:calc(100% - 250px);
+    font-family: Verdana;
+}
+
+#elemento4{
+    text-align:center;
+    color:#191970;
+    font-family: Verdana;
+    font-weight:bold;
+    font-size:xx-small;
+    top:-moz-calc(100% - 20px);
+    top:-webkit-calc(100% - 20px);
+    top:calc(100% - 20px);
+    z-index: 1;
+    width:100%;
+    position:absolute;
+    height: 10px;
+}
+
+#elemento5{
+    text-align:left;
+    background-color:#101549;
+    position:absolute;
+    z-index: 1;
+    min-width: 872px;
+    width: -moz-calc(100% - 2px);
+    width: -webkit-calc(100% - 2px);
+    width: calc(100% - 2px);
+    float:left;
+    height:50px;
+    left:1px;
+    font-family: Verdana;
+    top:1px;
+}
+
+#elemento6{
+    text-align:center;
+    background-color:#FFFFFF;
+    position:absolute;
+    z-index: 2;
+    float:left;
+    min-width: 722px;
+    min-height: 575px;
+    width: -moz-calc(100% - 153px);
+    width: -webkit-calc(100% - 153px);
+    width: calc(100% - 153px);
+    height: -moz-calc(100% - 55px);
+    height: -webkit-calc(100% - 55px);
+    height: calc(100% - 55px);
+    top:52px;
+    left:152px;
+    font-family: Verdana;
+}
+
+#elemento7{
+    text-align:left;
+    background-color:#6C7B8B;
+    position:absolute;
+    z-index: 3;
+    width:150px;
+    min-height: 576px;
+    height: -moz-calc(100% - 55px);
+    height: -webkit-calc(100% - 55px);
+    height: calc(100% - 55px);
+    float:left; 
+    top:52px;
+    left:1px;
+}
+
+.formlogin{
+    width:215px;
+    padding:10px ;
+    margin: 0 auto;
+    margin-top:50px;
+    text-align:center;
+    background-color:#D5E7ED;
+    font-family: Verdana;
+    font-size:90%;
+    color:#191970;
+}
+
+.tabelasenha{
+    text-align:left;
+    background-color: #D5E7ED;
+    font-family: Verdana;
+    color:#000000;
+    font-weight: normal;
+    width: 322px;
+}
+
+.tabelausuario{
+    text-align:left;
+    margin:1px;
+    background-color: #D5E7ED;
+    font-family: Verdana;
+    width: 523px;
+    left: 102px;
+    position: absolute;
+    top: 29px;
+}
+
+.tabelacredor{
+    text-align:left;
+    margin:0px;
+    background-color: #D5E7ED;
+    font-family: Verdana;
+    width: 679px;
+}
+
+.tabelapagamento{
+    text-align:left;
+    margin:0px;
+    padding: 0px;
+    background-color: #D5E7ED;
+    font-family: Verdana;
+    font-size: small;
+    width: 535px;
+    visibility:visible;
+}
+
+.tabelapagamentoi{
+    visibility:hidden;
+}
+
+.tabelalocalizar{
+    text-align:left;
+    margin:0px;
+    padding: 0px;
+    background-color: #D5E7ED;
+    font-family: Verdana;
+    font-size: small;
+    width: 682px;
+    visibility:visible;
+}
+
+.tabelalocalizari{
+    text-align:left;
+    margin:0px;
+    padding: 0px;
+    background-color: #D5E7ED;
+    font-family: Verdana;
+    font-size: small;
+    width: 682px;
+    visibility:hidden;
+}
+
+.tabelalocalizarsub{
+    text-align:left;
+    margin:0px;
+    padding: 0px;
+    background-color: #D5E7ED;
+    font-family: Verdana;
+    font-size: small;
+    width: 671px;
+    visibility:visible;
+    
+}
+
+.tabelalocalizarsubi{
+    text-align:left;
+    margin:0px;
+    padding: 0px;
+    background-color: #D5E7ED;
+    font-family: Verdana;
+    font-size: small;
+    width: 671px;
+    visibility:hidden;
+}
+
+.tabelaperfil{
+    text-align:left;
+    margin:1px;
+    background-color: #D5E7ED;
+    font-family: Verdana;
+    width: 679px;
+}
+
+.tabelasegmentacao{
+    text-align:left;
+    margin:1px;
+    background-color: #D5E7ED;
+    font-family: Verdana;
+    width: 679px;
+}
+
+.usuario{
+    top:13px;
+    left:70px;
+    position:absolute;
+    font-family: Verdana;
+    font-weight:bold;
+    font-size:70%;
+    color:white;
+}
+
+.usuario2{
+    top:23px;
+    left:70px;
+    position:absolute;
+    font-family: Verdana;
+    font-weight:bold;
+    font-size:70%;
+    color:white;
+}
+
+a:visited{
+    color:blue;
+}
+
+*{
+    margin:0;
+    padding:0;
+}
+
+.box{
+    text-align:left;
+    border-collapse: collapse;
+    border-color: #ffffff;
+    padding:10px;
+    margin: 10px;
+    margin-left: 5px;
+}
+
+.labelatendimento{
+    
+}
+
+.txtatendimento{
+    width:110px;
+    display:block;
+    text-align:right;
+    font-weight: inherit;
+    padding-right: .1em;
+}
+
+ul li{
+    font-weight: bold;
+}
+
+#table{
+    visibility: hidden;
+}
+
+.titulousuario{
+    background-color: #101549;
+    color:#FFFFFF;
+    height: 25px;
+    width: 523px;
+    padding-top: 4px;
+    font-weight: bold;
+    left: 103px;
+    position: absolute;
+}
+
+.titulocredor{
+    background-color: #101549;
+    color:#FFFFFF;
+    height: 25px;
+    width: 680px;
+    padding-top: 4px;
+    font-weight: bold;   
+}
+
+.tituloperfil{
+    background-color: #101549;
+    color:#FFFFFF;
+    height: 25px;
+    width: 680px;
+    padding-top: 4px;
+    font-weight: bold;   
+}
+
+.titulosegmentacao{
+    background-color: #101549;
+    color:#FFFFFF;
+    height: 25px;
+    width: 680px;
+    padding-top: 4px;
+    font-weight: bold;   
+}
+
+.titulolocalizar{
+    background-color: #101549;
+    color:#FFFFFF;
+    height: 25px;
+    width: 682px;
+    padding-top: 4px;
+    font-weight: bold;   
+}
+.titulorelatorio{
+    background-color: #101549;
+    color:#FFFFFF;
+    height: 25px;
+    width: 671px;
+    padding-top: 4px;
+    font-weight: bold;   
+}
+
+.titulopagamento{
+    background-color: #101549;
+    color:#FFFFFF;
+    height: 25px;
+    width: 535px;
+    padding-top: 4px;
+    font-weight: bold;   
+}
+
+.titulosenha{
+    background-color: #101549;
+    color:#FFFFFF;
+    height: 25px;
+    width: 322px;
+    padding-top: 4px;
+    font-weight: bold;   
+}
+
+.jqxgridusuario{
+    margin-top: 20px;
+    top: 200px;
+    position: absolute;
+}
+
+.jqxgridcredor{
+    margin-top: 20px;
+    top: 385px;
+    position: absolute;
+}
+
+.jqxgridperfil{
+    margin-top: 20px;
+    top: 325px;
+    position: absolute;
+}
+
+.jqxgridsegmentacao{
+    margin-top: 20px;
+    top: 325px;
+    position: absolute;
+}
+
+.jqxgriddivida{
+    padding-top: 10px;
+}
+
+.jqxmaiuscula{
+    text-transform: uppercase;
+}
+
+.fontemenor{
+    font-family: Verdana;
+    font-size: small;
+}
+
+.corvermelho{
+    color: red;
+    font-weight: bold;
+}
+
+.corazul{
+    color: blue;
+    font-weight: bold;
+}
+
+.corverde{
+    color: green;
+    font-weight: bold;
+}
+
+.fontebold{
+    font-weight: bold;
+}

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioPerfilNegociacao" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e55f4564-e4d0-4e4d-9453-b22616aca513">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CREDOR" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="atrasoAte" class="java.lang.Integer">
+		<fieldDescription><![CDATA[atrasoAte]]></fieldDescription>
+	</field>
+	<field name="atrasoDe" class="java.lang.Integer">
+		<fieldDescription><![CDATA[atrasoDe]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="descontoEncargos" class="java.lang.Double">
+		<fieldDescription><![CDATA[descontoEncargos]]></fieldDescription>
+	</field>
+	<field name="descontoValorPrincipal" class="java.lang.Double">
+		<fieldDescription><![CDATA[descontoValorPrincipal]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[id]]></fieldDescription>
+	</field>
+	<field name="juros" class="java.lang.Double">
+		<fieldDescription><![CDATA[juros]]></fieldDescription>
+	</field>
+	<field name="jurosPorParcela" class="java.lang.Double">
+		<fieldDescription><![CDATA[jurosPorParcela]]></fieldDescription>
+	</field>
+	<field name="maximoParcelas" class="java.lang.Integer">
+		<fieldDescription><![CDATA[maximoParcelas]]></fieldDescription>
+	</field>
+	<field name="multa" class="java.lang.Double">
+		<fieldDescription><![CDATA[multa]]></fieldDescription>
+	</field>
+	<field name="tipo" class="java.lang.String">
+		<fieldDescription><![CDATA[tipo]]></fieldDescription>
+	</field>
+	<field name="valorMinimoEntrada" class="java.lang.Double">
+		<fieldDescription><![CDATA[valorMinimoEntrada]]></fieldDescription>
+	</field>
+	<field name="valorMinimoParcela" class="java.lang.Double">
+		<fieldDescription><![CDATA[valorMinimoParcela]]></fieldDescription>
+	</field>
+	<sortField name="atrasoDe"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="141" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="101" width="802" height="34" uuid="157da4a8-6fc9-4770-a107-e6735a39217f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CREDOR}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="367" y="0" width="68" height="70" uuid="71181582-5448-42b9-8185-e12f093b6a94"/>
+				<imageExpression><![CDATA["C:\\PFC\\CallCenter\\web\\imagens\\mundo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="347" y="60" width="108" height="20" uuid="5a2cbd52-7670-4a3d-8fcf-d78bd5bfb98e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ CALL CENTER]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="67">
+			<staticText>
+				<reportElement mode="Opaque" x="49" y="47" width="47" height="20" forecolor="#FFFFFF" backcolor="#000066" uuid="1654187c-8279-43c7-85f4-6efe6b3d0ef3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ATÉ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="47" width="48" height="20" forecolor="#FFFFFF" backcolor="#000066" uuid="88db7ebc-dcac-44c5-891c-0905ea47d772"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[DE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="97" y="27" width="59" height="40" forecolor="#FFFFFF" backcolor="#000066" uuid="76b6e490-eb70-4588-b9fd-0bd465c12c5b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[MÁXIMO PARCELAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="157" y="47" width="74" height="20" forecolor="#FFFFFF" backcolor="#000066" uuid="106fb619-92a5-4f45-9016-9e6c534df291"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[JUROS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="232" y="47" width="74" height="20" forecolor="#FFFFFF" backcolor="#000066" uuid="4ab1e87f-2721-4d29-b127-295bc0a0a695"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[MULTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="307" y="47" width="74" height="20" forecolor="#FFFFFF" backcolor="#000066" uuid="676c966b-bc6b-4b78-9bc3-27ce0a70d8f0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[PARCELA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="382" y="47" width="98" height="20" forecolor="#FFFFFF" backcolor="#000066" uuid="7e0efab7-ac9b-4d9c-8a4e-ec9becbb04c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[VALOR PRINCIPAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="481" y="47" width="97" height="20" forecolor="#FFFFFF" backcolor="#000066" uuid="f9b6bf4c-b975-40c8-b8bd-39b2fce23722"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ENCARGOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="579" y="47" width="98" height="20" forecolor="#FFFFFF" backcolor="#000066" uuid="2eac34ba-6c75-45aa-8785-02e8a7ce3e40"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ENTRADA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="678" y="47" width="99" height="20" forecolor="#FFFFFF" backcolor="#000066" uuid="a5286b2f-8a8f-488d-aba8-bbfe2eb82ef8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[PARCELA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="27" width="96" height="19" forecolor="#FFFFFF" backcolor="#000066" uuid="678d89ad-550b-4b5d-baa7-aae584c825fc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[DIAS EM ATRASO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="157" y="27" width="224" height="19" forecolor="#FFFFFF" backcolor="#000066" uuid="47b439af-d120-41ea-a74d-9ffd0fef9f2f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ENCARGOS %]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="382" y="27" width="196" height="19" forecolor="#FFFFFF" backcolor="#000066" uuid="0270234f-911f-4208-8b69-0d7c2de95d76"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[DESCONTO %]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="579" y="27" width="198" height="19" forecolor="#FFFFFF" backcolor="#000066" uuid="9ca23386-77ea-4593-a0f1-f0bb56e710f3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[VALOR MÍNIMO R$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="777" height="26" forecolor="#FFFFFF" backcolor="#000066" uuid="502672e4-24dd-4fb6-a9f7-ee45d4fafbac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true" isItalic="false" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[PERFIS DE NEGOCIAÇÃO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField pattern="#,##0">
+				<reportElement x="49" y="0" width="47" height="20" uuid="98d6accb-fd79-4719-bd0b-df4842bbb096"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{atrasoAte}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="0" y="0" width="48" height="20" uuid="1b0c9a88-52bc-4e0e-99a1-456fc79b95aa"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{atrasoDe}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="97" y="0" width="59" height="20" uuid="36134c9a-ebd3-4801-bdd9-8077b45edba3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{maximoParcelas}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 %" isBlankWhenNull="false">
+				<reportElement x="157" y="0" width="74" height="20" uuid="49f53886-447b-4460-93ee-76070f3a7c7e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{juros}/100]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 %">
+				<reportElement x="232" y="0" width="74" height="20" uuid="8d14029f-d050-487d-8003-73ef4543aafe"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{multa}/100]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 %">
+				<reportElement x="307" y="0" width="74" height="20" uuid="c46081c9-323c-44b4-968e-fb83a8aef2ce"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jurosPorParcela}/100]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 %">
+				<reportElement x="382" y="0" width="98" height="20" uuid="4b076430-8bb8-4494-8300-3369354e6538"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descontoValorPrincipal}/100]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00 %">
+				<reportElement x="481" y="0" width="97" height="20" uuid="4b529e65-d394-4d62-bf3c-42a8e341a90f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descontoEncargos}/100]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="579" y="0" width="98" height="20" uuid="9827dded-648d-4ca1-9d0f-e16835aa38a7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valorMinimoEntrada}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="678" y="0" width="99" height="20" uuid="f704cd09-a13d-4035-af25-f909040fb84a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valorMinimoParcela}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="702" y="0" width="100" height="20" uuid="fd1aa2ca-f97f-44a6-a105-377681bf8cf6"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

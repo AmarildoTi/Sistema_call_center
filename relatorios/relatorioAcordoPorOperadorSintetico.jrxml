@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioNegociacaoPorOperadorSintetico" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a8fef66d-f25e-463f-ad5a-48915d90559e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="96"/>
+	<parameter name="CREDOR" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PERIODO_INICIAL" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PERIODO_FINAL" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     *
+FROM
+     relatorioacordo($P{CREDOR})
+WHERE datanegociacao BETWEEN $P{PERIODO_INICIAL} AND $P{PERIODO_FINAL}]]>
+	</queryString>
+	<field name="negociacao" class="java.lang.Integer"/>
+	<field name="operador" class="java.lang.String"/>
+	<field name="razaosocial" class="java.lang.String"/>
+	<field name="cpf" class="java.math.BigDecimal"/>
+	<field name="valordivida" class="java.math.BigDecimal"/>
+	<field name="datadivida" class="java.sql.Date"/>
+	<field name="valornegociacao" class="java.math.BigDecimal"/>
+	<field name="datanegociacao" class="java.sql.Date"/>
+	<field name="parcelas" class="java.lang.Long"/>
+	<field name="qtdepaga" class="java.lang.Long"/>
+	<field name="parcelapaga" class="java.math.BigDecimal"/>
+	<variable name="negociacao_1" class="java.lang.Integer" resetType="Group" resetGroup="operador" calculation="Count">
+		<variableExpression><![CDATA[$F{negociacao}]]></variableExpression>
+	</variable>
+	<variable name="valordivida_1" class="java.math.BigDecimal" resetType="Group" resetGroup="operador" calculation="Sum">
+		<variableExpression><![CDATA[$F{valordivida}]]></variableExpression>
+	</variable>
+	<variable name="parcelapaga_1" class="java.math.BigDecimal" resetType="Group" resetGroup="operador" calculation="Sum">
+		<variableExpression><![CDATA[$F{parcelapaga}]]></variableExpression>
+	</variable>
+	<variable name="valornegociacao_1" class="java.math.BigDecimal" resetType="Group" resetGroup="operador" calculation="Sum">
+		<variableExpression><![CDATA[$F{valornegociacao}]]></variableExpression>
+	</variable>
+	<variable name="valordivida_2" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{valordivida}]]></variableExpression>
+	</variable>
+	<variable name="negociacao_2" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{negociacao}]]></variableExpression>
+	</variable>
+	<variable name="valornegociacao_2" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{valornegociacao}]]></variableExpression>
+	</variable>
+	<variable name="parcelapaga_2" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{parcelapaga}]]></variableExpression>
+	</variable>
+	<group name="operador">
+		<groupExpression><![CDATA[$F{operador}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField>
+					<reportElement mode="Opaque" x="1" y="0" width="554" height="20" backcolor="#EDEDFA" uuid="2857d557-ba6f-4676-ac80-ed01ba79bee6"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{operador}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="20">
+				<textField pattern="#,##0" isBlankWhenNull="true">
+					<reportElement x="363" y="0" width="78" height="20" uuid="12e1db3e-9fef-42c2-80c5-e6d002d52992"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{negociacao_1}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+					<reportElement x="265" y="0" width="97" height="20" uuid="0c412659-fc1b-4e04-a961-8e95761eb99c"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{valordivida_1}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+					<reportElement x="442" y="0" width="113" height="20" uuid="51d4fab0-a6a5-4473-8157-19b5f6e27172"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{valornegociacao_1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="116" splitType="Stretch">
+			<image>
+				<reportElement x="243" y="0" width="68" height="70" uuid="e938f0fe-0da1-4891-9413-1e606c123f56"/>
+				<imageExpression><![CDATA["C:\\PFC\\CallCenter\\web\\imagens\\mundo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="223" y="60" width="108" height="20" uuid="960d541c-7f68-4b91-b204-254154a8db4d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ CALL CENTER]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="86" width="555" height="30" uuid="d6af8ce1-94fa-473b-8c6d-53ee75212148"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{razaosocial}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="116" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="49" width="555" height="25" forecolor="#FFFFFF" backcolor="#000066" uuid="9debcaf5-4b9d-45e9-aab6-659ff1539d5c"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ACORDOS POR OPERADOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="364" y="75" width="191" height="20" forecolor="#FFFFFF" backcolor="#000066" uuid="2fb15c65-2dc5-4af6-9409-0d0b3a261fe8"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ACORDO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="75" width="265" height="41" forecolor="#FFFFFF" backcolor="#000066" uuid="de3d7017-d839-41e7-ab64-c781ed9cd08f"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[OPERADOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="442" y="96" width="113" height="20" forecolor="#FFFFFF" backcolor="#000066" uuid="d305fe9c-f9c1-42db-b086-860d2426a057"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[VALOR NEGOCIADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="364" y="96" width="77" height="20" forecolor="#FFFFFF" backcolor="#000066" uuid="d7c040f1-b054-441c-bff9-afa60d59c11b"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[QUANTIDADE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="266" y="75" width="97" height="20" forecolor="#FFFFFF" backcolor="#000066" uuid="28cddc6e-e4c9-4bab-91a4-2daebb229aed"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[DÍVIDA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="266" y="96" width="97" height="20" forecolor="#FFFFFF" backcolor="#000066" uuid="09726fd0-a78b-43da-bb38-f893f22fbda4"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true" isItalic="false" isUnderline="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[VALOR]]></text>
+			</staticText>
+			<textField pattern="">
+				<reportElement x="1" y="0" width="555" height="28" uuid="a43da946-1196-4f32-9def-f2d56ba52bfd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PERÍODO DE " + new SimpleDateFormat("dd/MM/yyyy").format($P{PERIODO_INICIAL}) + " ATÉ " + new SimpleDateFormat("dd/MM/yyyy").format($P{PERIODO_FINAL})]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="69a0cda6-0a26-44ad-b5f5-18eca6ab221e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="324" splitType="Stretch">
+			<staticText>
+				<reportElement x="167" y="1" width="99" height="20" uuid="9bedb24d-4914-43c8-a172-17a380dd892e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[TOTAL:]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="266" y="1" width="97" height="20" uuid="dfc243f4-bfdc-4498-9ff4-e6edce9ae0ce"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{valordivida_2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="364" y="1" width="77" height="20" uuid="aa0f3ae5-1669-4724-9fbc-b5f86f7b7f56"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{negociacao_2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="442" y="1" width="111" height="20" uuid="ca8dc5c9-6df5-41ea-a324-d5870d163c10"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{valornegociacao_2}]]></textFieldExpression>
+			</textField>
+			<xyLineChart>
+				<chart isShowLegend="true">
+					<reportElement x="0" y="91" width="555" height="233" uuid="59646da9-7ab3-4470-9efd-ee9612714e61"/>
+					<chartTitle position="Top">
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+						<titleExpression><![CDATA["ACORDOS POR OPERADOR"]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle/>
+					<chartLegend position="Bottom">
+						<font fontName="Arial" isBold="true" isItalic="true" pdfFontName="Helvetica-BoldOblique"/>
+					</chartLegend>
+				</chart>
+				<xyDataset>
+					<xySeries>
+						<seriesExpression><![CDATA[$F{operador}]]></seriesExpression>
+						<xValueExpression><![CDATA[$V{negociacao_1}.intValue()]]></xValueExpression>
+						<yValueExpression><![CDATA[$V{valornegociacao_1}.doubleValue()]]></yValueExpression>
+					</xySeries>
+				</xyDataset>
+				<linePlot isShowLines="true" isShowShapes="true">
+					<plot labelRotation="0.0"/>
+					<categoryAxisLabelExpression><![CDATA["Quantidade de Acordos"]]></categoryAxisLabelExpression>
+					<categoryAxisFormat labelRotation="0.0">
+						<axisFormat verticalTickLabels="false">
+							<labelFont>
+								<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+							</labelFont>
+							<tickLabelFont>
+								<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+							</tickLabelFont>
+						</axisFormat>
+					</categoryAxisFormat>
+					<valueAxisLabelExpression><![CDATA["Valor Negociado"]]></valueAxisLabelExpression>
+					<valueAxisFormat>
+						<axisFormat tickLabelMask="¤ #,##0.00">
+							<labelFont>
+								<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+							</labelFont>
+							<tickLabelFont>
+								<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+							</tickLabelFont>
+						</axisFormat>
+					</valueAxisFormat>
+				</linePlot>
+			</xyLineChart>
+			<line>
+				<reportElement x="0" y="0" width="554" height="1" uuid="4b452406-80ba-432d-a753-cbe0fa81149f"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

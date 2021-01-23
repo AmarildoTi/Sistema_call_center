@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorioDividaPorPerfilNegociacao" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6062dd43-ed38-44df-9bb6-9ad3760d0d3f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CREDOR" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from relatorioDividaPorPerfilNegociacao($P{CREDOR})]]>
+	</queryString>
+	<field name="atrasode" class="java.lang.Integer"/>
+	<field name="atrasoate" class="java.lang.Integer"/>
+	<field name="razaosocial" class="java.lang.String"/>
+	<field name="quantidade" class="java.lang.Long"/>
+	<field name="valor" class="java.math.BigDecimal"/>
+	<variable name="quantidade_1" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{quantidade}]]></variableExpression>
+	</variable>
+	<variable name="valor_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="93" splitType="Stretch">
+			<image>
+				<reportElement x="243" y="0" width="68" height="70" uuid="9f49a2f5-9b51-4ea7-8240-5f32574a5299"/>
+				<imageExpression><![CDATA["C:\\PFC\\CallCenter\\web\\imagens\\mundo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="223" y="60" width="108" height="20" uuid="d0a96b25-93e7-4488-8814-e9d0f9c3ced6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" isItalic="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[ CALL CENTER]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="67" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="555" height="20" uuid="2199ed55-c077-4cfa-8072-35530ee3ff7a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{razaosocial}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="107" y="47" width="113" height="20" forecolor="#FFFFFF" backcolor="#000066" uuid="a3e9c059-aff9-46f0-97ab-71d45a364d03"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[DIAS EM ATRASO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="221" y="47" width="113" height="20" forecolor="#FFFFFF" backcolor="#000066" uuid="cc3a4417-abc9-4c76-a5be-730bd8d7021f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[QUANTIDADE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="335" y="47" width="113" height="20" forecolor="#FFFFFF" backcolor="#000066" uuid="e60c4b3f-86b3-49bb-8d9f-2840625cb8a8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[VALOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="107" y="27" width="341" height="19" forecolor="#FFFFFF" backcolor="#000066" uuid="d22294cc-bdc8-415f-a4e8-3d9025fecf40"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[DÍVIDAS POR PERFIL DE NEGOCIAÇÃO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<textField>
+				<reportElement x="107" y="0" width="113" height="20" uuid="16cff3eb-2e1a-4fb4-b2c9-0e3c04b6dd3f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Entre " +$F{atrasode} +" e " + $F{atrasoate}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="221" y="0" width="113" height="20" uuid="711b1342-e595-435e-b6cb-a5d8f871a3cf"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quantidade}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="335" y="0" width="113" height="20" uuid="b2c252ba-dbcb-4d73-8945-43a68e6e6e0c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="4ed9ce9e-32d6-45c3-aa03-703985d660a5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="268">
+			<staticText>
+				<reportElement x="107" y="1" width="113" height="20" uuid="a533c8a5-560f-40df-8bd6-7276ab46c3e5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<line>
+				<reportElement x="107" y="0" width="341" height="1" uuid="f3f74b8d-8ac0-44c1-8ac4-aa6ec1ab590e"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<textField pattern="#,##0">
+				<reportElement x="221" y="1" width="113" height="20" uuid="5addd197-a197-406d-8cd7-bce09b5bebeb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{quantidade_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="335" y="1" width="113" height="20" uuid="4f04a3a7-d0d0-4462-9609-4741de34d3c0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{valor_1}]]></textFieldExpression>
+			</textField>
+			<pieChart>
+				<chart>
+					<reportElement x="12" y="66" width="240" height="202" uuid="8e91900c-0514-4eaf-9085-83741ae858db"/>
+					<chartTitle>
+						<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+						<titleExpression><![CDATA["QUANTIDADE"]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle/>
+					<chartLegend>
+						<font fontName="Arial"/>
+					</chartLegend>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[" Entre " + $F{atrasode} + " e " + $F{atrasoate}]]></keyExpression>
+					<valueExpression><![CDATA[$F{quantidade}]]></valueExpression>
+				</pieDataset>
+				<piePlot isShowLabels="true" isCircular="true" labelFormat="{2}">
+					<plot/>
+					<itemLabel>
+						<font fontName="Arial"/>
+					</itemLabel>
+				</piePlot>
+			</pieChart>
+			<pieChart>
+				<chart>
+					<reportElement x="302" y="66" width="240" height="202" uuid="c0041934-ade1-45c4-a56b-4d4555a9250f"/>
+					<chartTitle>
+						<font fontName="Arial" isBold="true" pdfFontName="Helvetica-Bold"/>
+						<titleExpression><![CDATA["VALOR"]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle/>
+					<chartLegend>
+						<font fontName="Arial"/>
+					</chartLegend>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[" Entre " + $F{atrasode} + " e " + $F{atrasoate}]]></keyExpression>
+					<valueExpression><![CDATA[$F{valor}]]></valueExpression>
+				</pieDataset>
+				<piePlot isShowLabels="true" isCircular="true" labelFormat="{2}" legendLabelFormat="{0}">
+					<plot/>
+					<itemLabel>
+						<font fontName="Arial"/>
+					</itemLabel>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>
